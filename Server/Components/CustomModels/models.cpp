@@ -637,9 +637,6 @@ public:
 
 		for (IPlayer* player : players->entries())
 		{
-			if (player->getClientVersion() != ClientVersion::ClientVersion_SAMP_03DL)
-				continue;
-
 			PacketHelper::send(modelInfo, *player);
 		}
 
@@ -718,6 +715,7 @@ public:
 		if (player.getClientVersion() != ClientVersion::ClientVersion_SAMP_03DL || !webServer)
 		{
 			return;
+			
 		}
 
 		webServer->allowIPAddress(player.getNetworkData().networkID.address.v4);
